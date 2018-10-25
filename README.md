@@ -1,15 +1,16 @@
 # NJCircleLine
 
-[![CI Status](https://img.shields.io/travis/Jin Nagumo/NJCircleLine.svg?style=flat)](https://travis-ci.org/Jin Nagumo/NJCircleLine)
-[![Version](https://img.shields.io/cocoapods/v/NJCircleLine.svg?style=flat)](https://cocoapods.org/pods/NJCircleLine)
-[![License](https://img.shields.io/cocoapods/l/NJCircleLine.svg?style=flat)](https://cocoapods.org/pods/NJCircleLine)
-[![Platform](https://img.shields.io/cocoapods/p/NJCircleLine.svg?style=flat)](https://cocoapods.org/pods/NJCircleLine)
+Wanna draw a dot line like the one in Google Map? Use NJCircleLine! :-)
+
+![Screen Shot](screenshots/dotline.png)
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+Since this lib depends on Google Map SDK, you have to register your app to which you want to embed this library with Google Map service and abtain the required API key before running.
 
 ## Installation
 
@@ -20,9 +21,12 @@ it, simply add the following line to your Podfile:
 pod 'NJCircleLine'
 ```
 
+## Usage
+
+
 ## Author
 
-Jin Nagumo, jin.nagumo@dena.com
+Jin Nagumo
 
 ## License
 
