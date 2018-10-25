@@ -1,0 +1,6 @@
+use_frameworks!
+target 'NJCircleLine_Tests' do
+  pod 'NJCircleLine', :path => '../'
+  
+  
+end
