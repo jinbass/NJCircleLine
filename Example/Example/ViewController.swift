@@ -40,11 +40,13 @@ class ViewController: UIViewController {
     
     func drawLine() {
         circles.forEach() { $0.map = nil }
-        line.drawDotLine(from: CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474),
-                         to: CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305),
-                         on: mapView) { (polyLine, circles, distance, time, error) in
-                            self.circles = circles
-                            self.polyline = polyLine
+        let startPoint = CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474)
+        let endPoint = CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305)
+        line.drawDotLine(from: startPoint,
+                         to: endPoint,
+                         on: mapView) { [weak self] (polyLine, circles, distance, time, error) in
+                            self?.circles = circles
+                            self?.polyline = polyLine
         }
     }
 }

@@ -4,7 +4,7 @@ PODS:
   - GoogleMaps/Base (2.7.0)
   - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
-  - NJCircleLine (0.1.0):
+  - NJCircleLine (0.1.1):
     - GoogleMaps
 
 DEPENDENCIES:
@@ -20,8 +20,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
-  NJCircleLine: fd4f841a49cf0a3fffd163b2dda9cfc8cd6160cd
+  NJCircleLine: 8f5296645a1216ff97f75276ca70c2479c646049
 
-PODFILE CHECKSUM: 232c960c8f3577973390447874f8f69e8b78fa11
+PODFILE CHECKSUM: f080f1c4bea027e01254258622a8788c6db8f90e
 
 COCOAPODS: 1.5.3

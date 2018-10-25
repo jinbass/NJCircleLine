@@ -42,8 +42,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>NJCircleLine Demo</string>
+    <string>NJCircleLine Demo App</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>NJCircleLine Demo</string>
+    <string>NJCircleLine Demo App</string>
 </dict>
 </plist>
