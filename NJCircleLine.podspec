@@ -9,34 +9,22 @@
 Pod::Spec.new do |s|
   s.name             = 'NJCircleLine'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of NJCircleLine.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'A library that draws dot line with given points or polyline.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This simple library draws a dotted line with a given start point and end point on Google Map.
                        DESC
 
-  s.homepage         = 'https://github.com/Jin Nagumo/NJCircleLine'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/jinbass/NJCircleLine'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Jin Nagumo' => 'jin.nagumo@dena.com' }
-  s.source           = { :git => 'https://github.com/Jin Nagumo/NJCircleLine.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Jin Nagumo' => 'hojinkojin@yahoo.co.jp' }
+  s.source           = { :git => 'https://github.com/jinbass/NJCircleLine.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/dog_jin'
 
   s.ios.deployment_target = '8.0'
-
+  s.swift_version = '4.2'
+  s.static_framework = true
   s.source_files = 'NJCircleLine/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'NJCircleLine' => ['NJCircleLine/Assets/*.png']
-  # }
+  s.dependency 'GoogleMaps'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

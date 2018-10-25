@@ -1,0 +1,16 @@
+PODS:
+  - NJCircleLine (0.1.0)
+
+DEPENDENCIES:
+  - NJCircleLine (from `../`)
+
+EXTERNAL SOURCES:
+  NJCircleLine:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NJCircleLine: ec111b6de38b37669417b17aaa6d48ecf5bcf903
+
+PODFILE CHECKSUM: 2d6cc7d9dc8d17910b6143b2588d2c498a208aec
+
+COCOAPODS: 1.5.3

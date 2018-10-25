@@ -1,0 +1,6 @@
+framework module NJCircleLine {
+  umbrella header "NJCircleLine-umbrella.h"
+
+  export *
+  module * { export * }
+}
