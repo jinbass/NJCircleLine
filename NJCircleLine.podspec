@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NJCircleLine'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A library that draws dot line with given points or polyline.'
 
   s.description      = <<-DESC
