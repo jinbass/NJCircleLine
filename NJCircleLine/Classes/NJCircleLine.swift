@@ -2,8 +2,8 @@ import GoogleMaps
 
 public class NJCircleLine {
     
-    let directionAPIKey: String
-    var circleColor = UIColor.blue
+    public let directionAPIKey: String
+    public var circleColor = UIColor.blue
     
     public init(directionAPIKey: String) {
         self.directionAPIKey = directionAPIKey

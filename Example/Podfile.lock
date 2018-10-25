@@ -1,16 +1,27 @@
 PODS:
-  - NJCircleLine (0.1.0)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - NJCircleLine (0.1.0):
+    - GoogleMaps
 
 DEPENDENCIES:
   - NJCircleLine (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GoogleMaps
 
 EXTERNAL SOURCES:
   NJCircleLine:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NJCircleLine: ec111b6de38b37669417b17aaa6d48ecf5bcf903
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  NJCircleLine: fd4f841a49cf0a3fffd163b2dda9cfc8cd6160cd
 
-PODFILE CHECKSUM: 2d6cc7d9dc8d17910b6143b2588d2c498a208aec
+PODFILE CHECKSUM: 232c960c8f3577973390447874f8f69e8b78fa11
 
 COCOAPODS: 1.5.3

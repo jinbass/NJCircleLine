@@ -3,192 +3,179 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		CF980FA51080853F1FAC2035 /* Pods_NJCircleLine_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F565D972EC0AF21AF39FFD5 /* Pods_NJCircleLine_Tests.framework */; };
+		8F21B0612181C14E00562939 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F21B0602181C14E00562939 /* AppDelegate.swift */; };
+		8F21B0632181C14E00562939 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F21B0622181C14E00562939 /* ViewController.swift */; };
+		8F21B0662181C14E00562939 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F21B0642181C14E00562939 /* Main.storyboard */; };
+		8F21B0682181C14F00562939 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F21B0672181C14F00562939 /* Assets.xcassets */; };
+		8F21B06B2181C14F00562939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F21B0692181C14F00562939 /* LaunchScreen.storyboard */; };
+		EB98642BB2B874D1E4C5BD34 /* Pods_NJCircleLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A60C04829BB7D154182AF71 /* Pods_NJCircleLine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FEAC6C31ED9457E1E7F718B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4F565D972EC0AF21AF39FFD5 /* Pods_NJCircleLine_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJCircleLine_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACE51AFB9204008FA782 /* NJCircleLine_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NJCircleLine_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		859B43C4DE9E04FD20D2DB7B /* NJCircleLine.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NJCircleLine.podspec; path = ../NJCircleLine.podspec; sourceTree = "<group>"; };
-		90D38307C6AFA3D0A965631A /* Pods-NJCircleLine_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJCircleLine_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJCircleLine_Tests/Pods-NJCircleLine_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		AD8B680D6C177405A45B57D2 /* Pods-NJCircleLine_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJCircleLine_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJCircleLine_Tests/Pods-NJCircleLine_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D33FA51B09277727E32666EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		0A60C04829BB7D154182AF71 /* Pods_NJCircleLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJCircleLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F21B05D2181C14E00562939 /* NJCircleLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJCircleLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F21B0602181C14E00562939 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8F21B0622181C14E00562939 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F21B0652181C14E00562939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8F21B0672181C14F00562939 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F21B06A2181C14F00562939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F21B06C2181C14F00562939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA1A6F42C6D768B7E873DE4 /* Pods-NJCircleLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJCircleLine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJCircleLine/Pods-NJCircleLine.debug.xcconfig"; sourceTree = "<group>"; };
+		B984D706FCDFA7AA21EAE26D /* Pods-NJCircleLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJCircleLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJCircleLine/Pods-NJCircleLine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
+		8F21B05A2181C14E00562939 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF980FA51080853F1FAC2035 /* Pods_NJCircleLine_Tests.framework in Frameworks */,
+				EB98642BB2B874D1E4C5BD34 /* Pods_NJCircleLine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		607FACC71AFB9204008FA782 = {
+		8F21B0542181C14E00562939 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACE81AFB9204008FA782 /* Tests */,
-				607FACD11AFB9204008FA782 /* Products */,
-				B61F83617791BE86B0F4D351 /* Pods */,
-				DCF4214732C56140F9A9890C /* Frameworks */,
+				8F21B05F2181C14E00562939 /* NJCircleLine */,
+				8F21B05E2181C14E00562939 /* Products */,
+				A997D64D67C77684D1F8FABD /* Pods */,
+				947DC8726E2028FF2CC7600E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		607FACD11AFB9204008FA782 /* Products */ = {
+		8F21B05E2181C14E00562939 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACE51AFB9204008FA782 /* NJCircleLine_Tests.xctest */,
+				8F21B05D2181C14E00562939 /* NJCircleLine.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
+		8F21B05F2181C14E00562939 /* NJCircleLine */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
+				8F21B0602181C14E00562939 /* AppDelegate.swift */,
+				8F21B0622181C14E00562939 /* ViewController.swift */,
+				8F21B0642181C14E00562939 /* Main.storyboard */,
+				8F21B0672181C14F00562939 /* Assets.xcassets */,
+				8F21B0692181C14F00562939 /* LaunchScreen.storyboard */,
+				8F21B06C2181C14F00562939 /* Info.plist */,
 			);
-			path = Tests;
+			path = NJCircleLine;
 			sourceTree = "<group>";
 		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+		947DC8726E2028FF2CC7600E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				859B43C4DE9E04FD20D2DB7B /* NJCircleLine.podspec */,
-				0FEAC6C31ED9457E1E7F718B /* README.md */,
-				D33FA51B09277727E32666EA /* LICENSE */,
-			);
-			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		B61F83617791BE86B0F4D351 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AD8B680D6C177405A45B57D2 /* Pods-NJCircleLine_Tests.debug.xcconfig */,
-				90D38307C6AFA3D0A965631A /* Pods-NJCircleLine_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		DCF4214732C56140F9A9890C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4F565D972EC0AF21AF39FFD5 /* Pods_NJCircleLine_Tests.framework */,
+				0A60C04829BB7D154182AF71 /* Pods_NJCircleLine.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A997D64D67C77684D1F8FABD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BA1A6F42C6D768B7E873DE4 /* Pods-NJCircleLine.debug.xcconfig */,
+				B984D706FCDFA7AA21EAE26D /* Pods-NJCircleLine.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACE41AFB9204008FA782 /* NJCircleLine_Tests */ = {
+		8F21B05C2181C14E00562939 /* NJCircleLine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NJCircleLine_Tests" */;
+			buildConfigurationList = 8F21B06F2181C14F00562939 /* Build configuration list for PBXNativeTarget "NJCircleLine" */;
 			buildPhases = (
-				D358042A509F1299A4D9BA18 /* [CP] Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				07A67BED24A652EAF721D9DF /* [CP] Embed Pods Frameworks */,
+				F71C6270861C01F5B9C22424 /* [CP] Check Pods Manifest.lock */,
+				8F21B0592181C14E00562939 /* Sources */,
+				8F21B05A2181C14E00562939 /* Frameworks */,
+				8F21B05B2181C14E00562939 /* Resources */,
+				978C4BE73A764A2A7EF77D40 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NJCircleLine_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* NJCircleLine_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = NJCircleLine;
+			productName = NJCircleLine;
+			productReference = 8F21B05D2181C14E00562939 /* NJCircleLine.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		607FACC81AFB9204008FA782 /* Project object */ = {
+		8F21B0552181C14E00562939 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = CocoaPods;
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Jinbass;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-						TestTargetID = 607FACCF1AFB9204008FA782;
+					8F21B05C2181C14E00562939 = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NJCircleLine" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 8F21B0582181C14E00562939 /* Build configuration list for PBXProject "NJCircleLine" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 607FACC71AFB9204008FA782;
-			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			mainGroup = 8F21B0542181C14E00562939;
+			productRefGroup = 8F21B05E2181C14E00562939 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACE41AFB9204008FA782 /* NJCircleLine_Tests */,
+				8F21B05C2181C14E00562939 /* NJCircleLine */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		607FACE31AFB9204008FA782 /* Resources */ = {
+		8F21B05B2181C14E00562939 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F21B06B2181C14F00562939 /* LaunchScreen.storyboard in Resources */,
+				8F21B0682181C14F00562939 /* Assets.xcassets in Resources */,
+				8F21B0662181C14E00562939 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07A67BED24A652EAF721D9DF /* [CP] Embed Pods Frameworks */ = {
+		978C4BE73A764A2A7EF77D40 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NJCircleLine_Tests/Pods-NJCircleLine_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NJCircleLine/NJCircleLine.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-NJCircleLine/Pods-NJCircleLine-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NJCircleLine.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJCircleLine_Tests/Pods-NJCircleLine_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJCircleLine/Pods-NJCircleLine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D358042A509F1299A4D9BA18 /* [CP] Check Pods Manifest.lock */ = {
+		F71C6270861C01F5B9C22424 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,7 +186,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NJCircleLine_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NJCircleLine-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -209,48 +196,75 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		607FACE11AFB9204008FA782 /* Sources */ = {
+		8F21B0592181C14E00562939 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				8F21B0632181C14E00562939 /* ViewController.swift in Sources */,
+				8F21B0612181C14E00562939 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		8F21B0642181C14E00562939 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F21B0652181C14E00562939 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8F21B0692181C14F00562939 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F21B06A2181C14F00562939 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		607FACED1AFB9204008FA782 /* Debug */ = {
+		8F21B06D2181C14F00562939 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -258,52 +272,60 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		607FACEE1AFB9204008FA782 /* Release */ = {
+		8F21B06E2181C14F00562939 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -311,76 +333,76 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
+		8F21B0702181C14F00562939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD8B680D6C177405A45B57D2 /* Pods-NJCircleLine_Tests.debug.xcconfig */;
+			baseConfigurationReference = 9BA1A6F42C6D768B7E873DE4 /* Pods-NJCircleLine.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YMM878X34;
+				INFOPLIST_FILE = NJCircleLine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jin.NJCircleLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NJCircleLine_Example.app/NJCircleLine_Example";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		607FACF41AFB9204008FA782 /* Release */ = {
+		8F21B0712181C14F00562939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D38307C6AFA3D0A965631A /* Pods-NJCircleLine_Tests.release.xcconfig */;
+			baseConfigurationReference = B984D706FCDFA7AA21EAE26D /* Pods-NJCircleLine.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YMM878X34;
+				INFOPLIST_FILE = NJCircleLine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jin.NJCircleLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NJCircleLine_Example.app/NJCircleLine_Example";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NJCircleLine" */ = {
+		8F21B0582181C14E00562939 /* Build configuration list for PBXProject "NJCircleLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				607FACED1AFB9204008FA782 /* Debug */,
-				607FACEE1AFB9204008FA782 /* Release */,
+				8F21B06D2181C14F00562939 /* Debug */,
+				8F21B06E2181C14F00562939 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NJCircleLine_Tests" */ = {
+		8F21B06F2181C14F00562939 /* Build configuration list for PBXNativeTarget "NJCircleLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
+				8F21B0702181C14F00562939 /* Debug */,
+				8F21B0712181C14F00562939 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+	rootObject = 8F21B0552181C14E00562939 /* Project object */;
 }
