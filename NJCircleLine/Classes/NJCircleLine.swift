@@ -1,15 +1,30 @@
 import GoogleMaps
 
+public struct NJCircleLineConfiguration {
+    private static var defaultColor: UIColor {
+        return UIColor(red: 0, green: 118.0/255.0, blue: 1.0, alpha: 1.0)
+    }
+    public var fillColor = NJCircleLineConfiguration.defaultColor
+    public var strokeColor = NJCircleLineConfiguration.defaultColor
+    public var strokeWidth: CGFloat = 0.0
+    public var circleRadius: CGFloat = 7.0
+    
+    public init() {}
+}
+
 public class NJCircleLine {
     
-    let directionAPIKey: String
-    public var circleColor = UIColor.blue
+    /**
+     *  $0: polyline
+     *  $1: painted circles
+     *  $2: total distance for a given route returned by Google service. 0 for linear line.
+     *  $3: total time for a given route returned by Google service. 0 for linear line.
+     *  $4: error if any
+     */
+    public typealias DrawingCompletiton = (String, [GMSCircle], Int, Int, NJCircleLineError?) -> ()
     
-    public init(directionAPIKey: String) {
-        self.directionAPIKey = directionAPIKey
-    }
     
-    public enum DirectionError: Error {
+    public enum NJCircleLineError: Error {
         case invalidParameters
         case networkFailure
         case parseFailure
@@ -28,18 +43,19 @@ public class NJCircleLine {
         static let defaultCameraMargine: CGFloat = 50.0
     }
     
-    public func drawDotLine(from source: CLLocationCoordinate2D,
-                           to destination: CLLocationCoordinate2D,
-                           on mapView: GMSMapView,
-                           mode: TravelMode = .walking,
-                           moveCamera: Bool = true,
-                           completion: ((String, [GMSCircle], Int, Int, DirectionError?) -> ())?) {
-        
+    public static func drawTravelLine(from start: CLLocationCoordinate2D,
+                                      to destination: CLLocationCoordinate2D,
+                                      on mapView: GMSMapView,
+                                      travelMode: TravelMode = .walking,
+                                      moveCamera: Bool = true,
+                                      configuration: NJCircleLineConfiguration = NJCircleLineConfiguration(),
+                                      apiKey: String,
+                                      completion: DrawingCompletiton?) {
         let urlString = Constant.GMSDirectAPIBaseURL +
-            "origin=\(source.latitude),\(source.longitude)" + "&" +
+            "origin=\(start.latitude),\(start.longitude)" + "&" +
             "destination=\(destination.latitude),\(destination.longitude)" + "&" +
-            "mode=\(mode.rawValue)"  + "&" +
-            "key=\(directionAPIKey)"
+            "mode=\(travelMode.rawValue)"  + "&" +
+            "key=\(apiKey)"
         
         guard let url = URL(string: urlString) else {
             completion?("", [GMSCircle](), 0, 0, .networkFailure)
@@ -59,27 +75,17 @@ public class NJCircleLine {
                     
                     if (routes.count > 0) {
                         let route = routes[0]
-                        DispatchQueue.main.async { [weak self] in
-                            if let self = self {
-                                let polyLine = route.polyline.points
-                                let circles = self.drawDotLineWithPolyString(polyStr: polyLine, on: mapView)
-                                if moveCamera {
-                                    let bounds = GMSCoordinateBounds(coordinate: source,
-                                                                     coordinate: destination)
-                                    let margine = Constant.defaultCameraMargine
-                                    let update = GMSCameraUpdate.fit(bounds,
-                                                                     with: UIEdgeInsets(top: margine,
-                                                                                        left: margine,
-                                                                                        bottom: margine,
-                                                                                        right: margine))
-                                    mapView.moveCamera(update)
-                                }
-                                completion?(polyLine,
-                                            circles,
-                                            route.totalDistanceAndDuration.0,
-                                            route.totalDistanceAndDuration.1,
-                                            nil)
+                        DispatchQueue.main.async {
+                            if moveCamera {
+                                moveCameraCenter(from: start, to: destination, on: mapView)
                             }
+                            let polyLine = route.polyline.points
+                            let circles = drawDotLineWithPolyString(polyStr: polyLine, on: mapView, configuration: configuration)
+                            completion?(polyLine,
+                                        circles,
+                                        route.totalDistanceAndDuration.0,
+                                        route.totalDistanceAndDuration.1,
+                                        nil)
                         }
                     }
                     else {
@@ -95,19 +101,62 @@ public class NJCircleLine {
                     completion?("", [GMSCircle](), 0, 0, .unknown)
                 }
             }
-        }.resume()
+            }.resume()
     }
     
+    public static func drawLinearLine(points: [CLLocationCoordinate2D],
+                                      on mapView: GMSMapView,
+                                      moveCamera: Bool = true,
+                                      configuration: NJCircleLineConfiguration = NJCircleLineConfiguration(),
+                                      completion: DrawingCompletiton?) {
+        let path = GMSMutablePath()
+        points.forEach { path.add($0) }
+        let circles = paintDotLine(path: path, on: mapView, configuration: configuration)
+        if moveCamera {
+            let lats = points.compactMap { $0.latitude }
+            let minLat = lats.reduce(99999) { min($0, $1) }
+            let maxLat = lats.reduce(0) { max($0, $1) }
+            let lngs = points.compactMap { $0.longitude }
+            let minLng = lngs.reduce(99999) { min($0, $1) }
+            let maxLng = lngs.reduce(0) { max($0, $1) }
+            moveCameraCenter(from: CLLocationCoordinate2D(latitude: minLat, longitude: minLng),
+                             to: CLLocationCoordinate2D(latitude: maxLat, longitude: maxLng),
+                             on: mapView)
+        }
+        completion?("", circles, 0, 0, nil)
+        
+    }
+    
+    private static func moveCameraCenter(from start: CLLocationCoordinate2D,
+                                         to destination: CLLocationCoordinate2D,
+                                         on mapView: GMSMapView) {
+        let bounds = GMSCoordinateBounds(coordinate: start,
+                                         coordinate: destination)
+        let margine = Constant.defaultCameraMargine
+        let update = GMSCameraUpdate.fit(bounds,
+                                         with: UIEdgeInsets(top: margine,
+                                                            left: margine,
+                                                            bottom: margine,
+                                                            right: margine))
+        mapView.moveCamera(update)
+    }
+    
+    
+    
     @discardableResult
-    public func drawDotLineWithPolyString(polyStr :String, on mapView: GMSMapView) -> [GMSCircle] {
+    public static func drawDotLineWithPolyString(polyStr :String,
+                                                 on mapView: GMSMapView,
+                                                 configuration: NJCircleLineConfiguration = NJCircleLineConfiguration()) -> [GMSCircle] {
         guard let path = GMSPath(fromEncodedPath: polyStr) else {
             return [GMSCircle]()
         }
-        return paintDotLine(path: path, on: mapView)
+        return paintDotLine(path: path, on: mapView, configuration: configuration)
     }
     
     @discardableResult
-    private func paintDotLine(path: GMSPath, on mapView: GMSMapView) -> [GMSCircle] {
+    private static func paintDotLine(path: GMSPath,
+                                     on mapView: GMSMapView,
+                                     configuration: NJCircleLineConfiguration) -> [GMSCircle] {
         guard path.count() > 0 else {
             return [GMSCircle]()
         }
@@ -146,9 +195,10 @@ public class NJCircleLine {
                         continue
                     }
                 }
-                let circle = GMSCircle(position: circleCoordinate, radius: NJCircleLine.calculateCircleRadius(mapView: mapView))
-                circle.fillColor = circleColor
-                circle.strokeColor = circleColor
+                let circle = GMSCircle(position: circleCoordinate, radius: calculateCircleRadius(mapView: mapView, circleRadius: configuration.circleRadius))
+                circle.fillColor = configuration.fillColor
+                circle.strokeColor = configuration.strokeColor
+                circle.strokeWidth = configuration.strokeWidth
                 circle.map = mapView
                 addedCircles.append(circle)
                 previousCircle = circle
@@ -157,8 +207,8 @@ public class NJCircleLine {
         return addedCircles
     }
     
-    private static func calculateCircleRadius(mapView: GMSMapView) -> CLLocationDistance {
-        let radius = 3 * CLLocationDistance(1/mapView.projection.points(forMeters: 1, at: mapView.camera.target))
-        return max(1, radius)
+    private static func calculateCircleRadius(mapView: GMSMapView, circleRadius: CGFloat) -> CLLocationDistance {
+        let metersForOnePoint = 1/mapView.projection.points(forMeters: 1, at: mapView.camera.target)
+        return CLLocationDistance(metersForOnePoint * circleRadius)
     }
 }

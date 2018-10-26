@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     var mapView: GMSMapView!
     var didDraw = false
-    let line = NJCircleLine(directionAPIKey: Constant.DirectionKey)
     var circles = [GMSCircle]()
     var polyline = ""
     
@@ -39,14 +38,17 @@ class ViewController: UIViewController {
     }
     
     func drawLine() {
+        
+        
         circles.forEach() { $0.map = nil }
         let startPoint = CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474)
         let endPoint = CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305)
-        line.drawDotLine(from: startPoint,
-                         to: endPoint,
-                         on: mapView) { [weak self] (polyLine, circles, distance, time, error) in
-                            self?.circles = circles
-                            self?.polyline = polyLine
+        NJCircleLine.drawTravelLine(from: startPoint,
+                                    to: endPoint,
+                                    on: mapView,
+                                    apiKey: Constant.DirectionKey) { [weak self] (polyLine, circles, distance, time, error) in
+                self?.circles = circles
+                self?.polyline = polyLine
         }
     }
 }
@@ -62,7 +64,7 @@ extension ViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         circles.forEach() { $0.map = nil }
-        circles = line.drawDotLineWithPolyString(polyStr: polyline, on: mapView)
+        circles = NJCircleLine.drawDotLineWithPolyString(polyStr: polyline, on: mapView)
     }
 }
 
