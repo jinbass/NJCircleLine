@@ -4,8 +4,7 @@ Wanna draw a dot line like the one in Google Map? Use NJCircleLine! :-)
 This library provide you a simple interface to be able to draw route navigation like dot lines. Not only it can draw straight linear lines with a collection of dots, it could also hit the Google Direcrtion API on your behalf and draw the returned route with dot lines as long as a configuration if provided.
 This library also provide you interface to redraw/resize your lines in case of map camera zoom changes.
 
-<img src="screenshots/dotline.png" width="320"/>
-<img src="screenshots/live.gif" width="320"/>
+<img src="screenshots/live.gif" width="400"/>
 
 ## Example
 
@@ -35,12 +34,54 @@ The basic usage is very simple. Every method provided in this library is static 
 let startPoint = CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474)
 let endPoint = CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305)
 
-// Call the method, done. (read more if you need further control)        
+// Call the drawTravelLine method, done. (read more if you need further control)        
 NJCircleLine.drawTravelLine(from: startPoint, 
                             to: endPoint,
                             on: mapView,
-                            apiKey: Constant.DirectionKey)
+                            apiKey: "YOUR GOOGLE DIRECTION API KEY",
+                            completion: nil)
 ```
+<img src="screenshots/dotline.png" width="400"/>
+
+Drawing a linear line is even more simple.
+```swift
+// Example for drawing linear line.
+// Travel line is the mode that you provide multiple points and the lib will connect them with dot line
+
+// Create points
+let point1 = CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474)
+let point2 = CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305)
+
+// Call the method        
+NJCircleLine.drawLinearLine(points: [point1, point2, point3],
+                            on: mapView,
+                            completion: nil)
+```
+<img src="screenshots/linear.png" width="400"/>
+
+You can also specify a visual configuration object and feed it to the draw methods.
+```swift
+// Create a configuration object
+var config = NJCircleLineConfiguration()
+config.fillColor = UIColor.red
+config.strokeWidth = 2.0
+config.strokeColor = UIColor.white // Note that it only takes effect when a non-zero strokeWidth is specified
+config.minimumInterval = 1.0 // interval between 2 circles
+config.circleRadius = 10.0
+
+// And feed it to the draw method
+
+// Create points
+// ...
+
+// Call the method        
+NJCircleLine.drawLinearLine(points: [point1, point2, point3],
+                            on: mapView,
+                            configuration: config,
+                            completion: nil)
+```
+<img src="screenshots/styling.png" width="400"/>
+
 
 
 ## Author
