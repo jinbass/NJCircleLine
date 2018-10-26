@@ -14,8 +14,23 @@ class ViewController: UIViewController {
     
     var mapView: GMSMapView!
     var didDraw = false
-    var circles = [GMSCircle]()
-    var polyline = ""
+    
+    var travelCircles = [GMSCircle]()
+    var travelPath: GMSPath? = nil
+    
+    var linearCircles = [GMSCircle]()
+    var linearPath: GMSPath? = nil
+    
+    var linearConfig: NJCircleLineConfiguration {
+        var config = NJCircleLineConfiguration()
+        config.fillColor = UIColor.red
+        config.strokeWidth = 2.0
+        config.strokeColor = UIColor.white
+        config.minimumInterval = 1.0
+        config.circleRadius = 10.0
+        return config
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +53,19 @@ class ViewController: UIViewController {
     }
     
     func drawLine() {
-        
-        
-        circles.forEach() { $0.map = nil }
         let startPoint = CLLocationCoordinate2D(latitude: 35.452006, longitude: 139.641474)
         let endPoint = CLLocationCoordinate2D(latitude: 35.446697, longitude: 139.647305)
         NJCircleLine.drawTravelLine(from: startPoint,
                                     to: endPoint,
                                     on: mapView,
-                                    apiKey: Constant.DirectionKey) { [weak self] (polyLine, circles, distance, time, error) in
-                self?.circles = circles
-                self?.polyline = polyLine
+                                    apiKey: Constant.DirectionKey) { [weak self] (path, circles, distance, time, error) in
+                self?.travelCircles = circles
+                self?.travelPath = path
+        }
+        
+        NJCircleLine.drawLinearLine(points: [startPoint, endPoint], on: mapView, configuration: linearConfig) { [weak self] (path, circles, distance, time, error) in
+            self?.linearCircles = circles
+            self?.linearPath = path
         }
     }
 }
@@ -63,8 +80,8 @@ extension ViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        circles.forEach() { $0.map = nil }
-        circles = NJCircleLine.drawDotLineWithPolyString(polyStr: polyline, on: mapView)
+        travelCircles = NJCircleLine.drawDotLine(path: travelPath, on: mapView, previousCircles: travelCircles)
+        linearCircles = NJCircleLine.drawDotLine(path: linearPath, on: mapView, previousCircles: linearCircles, configuration: linearConfig)
     }
 }
 

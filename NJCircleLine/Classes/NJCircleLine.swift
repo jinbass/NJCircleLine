@@ -8,6 +8,7 @@ public struct NJCircleLineConfiguration {
     public var strokeColor = NJCircleLineConfiguration.defaultColor
     public var strokeWidth: CGFloat = 0.0
     public var circleRadius: CGFloat = 7.0
+    public var minimumInterval: Double = 5.0
     
     public init() {}
 }
@@ -15,13 +16,13 @@ public struct NJCircleLineConfiguration {
 public class NJCircleLine {
     
     /**
-     *  $0: polyline
+     *  $0: path that needs to redraw the same route
      *  $1: painted circles
      *  $2: total distance for a given route returned by Google service. 0 for linear line.
      *  $3: total time for a given route returned by Google service. 0 for linear line.
      *  $4: error if any
      */
-    public typealias DrawingCompletiton = (String, [GMSCircle], Int, Int, NJCircleLineError?) -> ()
+    public typealias DrawingCompletiton = (GMSPath?, [GMSCircle], Int, Int, NJCircleLineError?) -> ()
     
     
     public enum NJCircleLineError: Error {
@@ -29,6 +30,7 @@ public class NJCircleLine {
         case networkFailure
         case parseFailure
         case routeNotFound
+        case polylineNotDrawable // This should be a google error if it happens
         case unknown
     }
     
@@ -58,14 +60,14 @@ public class NJCircleLine {
             "key=\(apiKey)"
         
         guard let url = URL(string: urlString) else {
-            completion?("", [GMSCircle](), 0, 0, .networkFailure)
+            completion?(nil, [GMSCircle](), 0, 0, .networkFailure)
             return
         }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
-                completion?("", [GMSCircle](), 0, 0, .networkFailure)
+                completion?(nil, [GMSCircle](), 0, 0, .networkFailure)
                 return
             }
             do {
@@ -79,18 +81,25 @@ public class NJCircleLine {
                             if moveCamera {
                                 moveCameraCenter(from: start, to: destination, on: mapView)
                             }
-                            let polyLine = route.polyline.points
-                            let circles = drawDotLineWithPolyString(polyStr: polyLine, on: mapView, configuration: configuration)
-                            completion?(polyLine,
+                            var pathError: NJCircleLineError? = nil
+                            var gmsPath: GMSPath? = nil
+                            var circles = [GMSCircle]()
+                            if let path = GMSPath(fromEncodedPath: route.polyline.points) {
+                                gmsPath = path
+                                circles = drawDotLine(path: path, on: mapView, configuration: configuration)
+                            } else {
+                                pathError = NJCircleLineError.polylineNotDrawable
+                            }
+                            completion?(gmsPath,
                                         circles,
                                         route.totalDistanceAndDuration.0,
                                         route.totalDistanceAndDuration.1,
-                                        nil)
+                                        pathError)
                         }
                     }
                     else {
                         DispatchQueue.main.async {
-                            completion?("", [GMSCircle](), 0, 0, .routeNotFound)
+                            completion?(nil, [GMSCircle](), 0, 0, .routeNotFound)
                         }
                     }
                 }
@@ -98,7 +107,7 @@ public class NJCircleLine {
             catch {
                 print("Error in parsing: \(error)")
                 DispatchQueue.main.async {
-                    completion?("", [GMSCircle](), 0, 0, .unknown)
+                    completion?(nil, [GMSCircle](), 0, 0, .unknown)
                 }
             }
             }.resume()
@@ -111,7 +120,6 @@ public class NJCircleLine {
                                       completion: DrawingCompletiton?) {
         let path = GMSMutablePath()
         points.forEach { path.add($0) }
-        let circles = paintDotLine(path: path, on: mapView, configuration: configuration)
         if moveCamera {
             let lats = points.compactMap { $0.latitude }
             let minLat = lats.reduce(99999) { min($0, $1) }
@@ -123,7 +131,8 @@ public class NJCircleLine {
                              to: CLLocationCoordinate2D(latitude: maxLat, longitude: maxLng),
                              on: mapView)
         }
-        completion?("", circles, 0, 0, nil)
+        let circles = drawDotLine(path: path, on: mapView, configuration: configuration)
+        completion?(path, circles, 0, 0, nil)
         
     }
     
@@ -141,28 +150,18 @@ public class NJCircleLine {
         mapView.moveCamera(update)
     }
     
-    
-    
     @discardableResult
-    public static func drawDotLineWithPolyString(polyStr :String,
-                                                 on mapView: GMSMapView,
-                                                 configuration: NJCircleLineConfiguration = NJCircleLineConfiguration()) -> [GMSCircle] {
-        guard let path = GMSPath(fromEncodedPath: polyStr) else {
-            return [GMSCircle]()
-        }
-        return paintDotLine(path: path, on: mapView, configuration: configuration)
-    }
-    
-    @discardableResult
-    private static func paintDotLine(path: GMSPath,
-                                     on mapView: GMSMapView,
-                                     configuration: NJCircleLineConfiguration) -> [GMSCircle] {
-        guard path.count() > 0 else {
+    public static func drawDotLine(path: GMSPath?,
+                                   on mapView: GMSMapView,
+                                   previousCircles: [GMSCircle]? = nil,
+                                   configuration: NJCircleLineConfiguration = NJCircleLineConfiguration()) -> [GMSCircle] {
+        guard let path = path, path.count() > 0 else {
             return [GMSCircle]()
         }
         
-        // minimum distance that should be between 2 circles
-        let intervalDistanceIncrement: Double = 5.0
+        // Clear previous circles from map
+        previousCircles?.forEach() { $0.map = nil }
+        
         var previousCircle: GMSCircle?
         var addedCircles = [GMSCircle]()
         
@@ -191,7 +190,7 @@ public class NJCircleLine {
                     let previousCircleLocation = CLLocation(latitude: previousCircle.position.latitude,
                                                             longitude: previousCircle.position.longitude)
                     let circleDistance = circleLocation.distance(from: previousCircleLocation)
-                    if previousCircle.radius * 2 + intervalDistanceIncrement > circleDistance {
+                    if previousCircle.radius * 2 + configuration.minimumInterval > circleDistance {
                         continue
                     }
                 }
