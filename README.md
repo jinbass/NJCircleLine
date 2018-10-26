@@ -1,7 +1,7 @@
 # NJCircleLine
 
 Wanna draw a dot line like the one in Google Map? Use NJCircleLine! :-)  
-This library provide you a simple interface to be able to draw route navigation like dot lines. Not only it can draw straight linear lines with a collection of dots, it could also hit the Google Direcrtion API on your behalf and draw the returned route with dot lines as long as a configuration if provided.
+This library provide you a simple interface to draw route-navigation-like dot lines. Not only it can draw straight linear lines with a collection of dots, it could also hit the Google Direcrtion API on your behalf and draw the returned route with dot lines as long as a configuration if provided.
 This library also provide you interface to redraw/resize your lines in case of map camera zoom changes.
 
 <img src="screenshots/live.gif" width="400"/>
@@ -79,7 +79,7 @@ NJCircleLine.drawLinearLine(points: [point1, point2],
 <img src="screenshots/styling.png" width="400"/>
 
 ### Advanced Control
-If you map view doesn't support gestures, especially zoom, then in most cases you should be OK with above usages. However, if you are enabling zoom in your map view, the circles once drawn in the map need to be eliminated and redrawn to match ahd map camera.  
+If you map view doesn't support gestures, especially zoom, then in most cases it should be enough with above usages. However, if you are enabling zoom in your map view, the circles once drawn in the map need to be eliminated and redrawn to match the map camera.  
 
 Fortunately doing this is not that complicated, all you need to do is to hold the path and reference of the array of circles returned by NJCircleLine methods.  
 ```swift
@@ -98,7 +98,7 @@ class NJMapViewController: ViewController {
         }
     }
 
-    // Once you have the reference, you just use them to redraw the line at the desired timing.
+    // Once you have the references, you just use them to redraw the line at the desired timing.
     // If you wanna achieve what the iOS Google Map app is doing, I recommend doing in the mapViewDidChangePosition delegate method of GMSMapView.
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         // Pass the path and cirles to the low level drawDotLine method.

@@ -63,7 +63,12 @@ class ViewController: UIViewController {
                 self?.travelPath = path
         }
         
-        NJCircleLine.drawLinearLine(points: [startPoint, endPoint], on: mapView, configuration: linearConfig) { [weak self] (path, circles, distance, time, error) in
+        let point1 = startPoint
+        let point2 = endPoint
+        
+        NJCircleLine.drawLinearLine(points: [point1, point2],
+                                    on: mapView,
+                                    configuration: linearConfig) { [weak self] (path, circles, distance, time, error) in
             self?.linearCircles = circles
             self?.linearPath = path
         }
