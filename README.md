@@ -4,7 +4,8 @@ Wanna draw a dot line like the one in Google Map? Use NJCircleLine! :-)
 This library provide you a simple interface to be able to draw route navigation like dot lines. Not only it can draw straight linear lines with a collection of dots, it could also hit the Google Direcrtion API on your behalf and draw the returned route with dot lines as long as a configuration if provided.
 This library also provide you interface to redraw/resize your lines in case of map camera zoom changes.
 
-<img src="screenshots/dotline.png" width="200"/>
+<img src="screenshots/dotline.png" width="320"/>
+<img src="screenshots/live.gif" width="320"/>
 
 ## Example
 
