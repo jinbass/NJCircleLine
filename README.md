@@ -103,7 +103,7 @@ class NJMapViewController: ViewController {
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         // Pass the path and cirles to the low level drawDotLine method.
         // Don't forget to get the new reference of circles while calling this method.
-        circles = NJCircleLine.drawDotLine(path: travelPath, on: mapView, previousCircles: circles)
+        circles = NJCircleLine.drawDotLine(path: path, on: mapView, previousCircles: circles)
     }
 }
 ```
