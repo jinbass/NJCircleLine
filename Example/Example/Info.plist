@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NJCircleLine Demo App</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NJCircleLine Demo App</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,9 +45,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>NJCircleLine Demo App</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>NJCircleLine Demo App</string>
 </dict>
 </plist>
